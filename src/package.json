@@ -6,6 +6,8 @@
   "scripts": {
     "build:send": "babel send.js -d dist",
     "start:send": "yarn build:send && node dist/send.js",
+    "build:receive": "babel receive.js -d dist",
+    "start:receive": "yarn build:receive && node dist/receive.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
