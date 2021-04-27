@@ -1,0 +1,27 @@
+{
+  "name": "rabbitmq",
+  "version": "1.0.0",
+  "description": "### install",
+  "main": "index.js",
+  "scripts": {
+    "build:send": "babel send.js -d dist",
+    "start:send": "yarn build:send && node dist/send.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerry81/rabbitmq.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerry81/rabbitmq/issues"
+  },
+  "homepage": "https://github.com/jerry81/rabbitmq#readme",
+  "dependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "amqplib": "^0.7.1"
+  }
+}
