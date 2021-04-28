@@ -10,6 +10,8 @@
     "start:wqsend": "yarn build:wqsend && node dist/wqsend.js",
     "build:receive": "babel receive.js -d dist",
     "start:receive": "yarn build:receive && node dist/receive.js",
+    "build:wqreceive": "babel wqreceive.js -d dist",
+    "start:wqreceive": "yarn build:wqreceive && node dist/wqreceive.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

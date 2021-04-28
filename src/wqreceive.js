@@ -1,28 +1,28 @@
-import amqp from 'amqplib/callback_api'
+import amqp from "amqplib/callback_api";
 
-amqp.connect('amqp://localhost', function(error0, connection) {
-    if (error0) {
-        throw error0
+amqp.connect("amqp://localhost", function(error0, connection) {
+  if (error0) {
+    throw error0;
+  }
+  connection.createChannel(function(error1, channel) {
+    // only creates if it doesn't already exist aka idempotent
+    if (error1) {
+      throw error1;
     }
-    connection.createChannel(function(error1, channel) { // only creates if it doesn't already exist aka idempotent
-      if (error1) {
-          throw error1
-      }
-      const queue = 'task_queue'
-      const msg = process.argv.slice(2).join(', ') || 'hello work queue'
-      print('msg is ', msg)
+    const queue = "task_queue";
 
-      channel.assertQueue(queue, {
-        durable: false
-      });
-  
-      channel.sendToQueue(queue, Buffer.from(msg), { persistent: true });
-      console.log(" [x] Sent %s", msg);
-    })
+    channel.assertQueue(queue, {
+      durable: false
+    });
 
-    setTimeout(function() {
-        connection.close()
-        console.log('connection closed')
-        process.exit(0)
-      }, 500)
-})
+    channel.consume(
+      queue,
+      function(msg) {
+        const secs = msg.content.toString().split(".").length - 1;
+        setTimeout(function() {}, secs * 1000);
+        console.log(" [x] Received  %s", msg.content.toString());
+      },
+      { noAck: true }
+    );
+  });
+});
