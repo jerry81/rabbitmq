@@ -44,4 +44,9 @@ producer - sends messages
 queue - "post box"
 consumer - receives messages
  producer, queue, consumer don't need to be on same host
-
+exchanges - another layer setting between producer/consumer and queue 
+    types
+        direct
+        topic
+        headers
+        fanout
