@@ -8,7 +8,8 @@ amqp.connect('amqp://localhost', function(error0, connection) {
       if (error1) {
           throw error1
       }
-      const msg = process.argv.slice[2].join(' ') || 'hello world'
+      console.log('argv is ', process.argv)
+      const msg = process.argv.slice(2).join(' ') || 'hello world'
 
       channel.assertExchange('logs', 'fanout', {
         durable: false

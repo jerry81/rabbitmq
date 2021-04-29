@@ -8,10 +8,14 @@
     "start:send": "yarn build:send && node dist/send.js",
     "build:wqsend": "babel wqsend.js -d dist",
     "start:wqsend": "yarn build:wqsend && node dist/wqsend.js",
+    "build:xsend": "babel xsend.js -d dist",
+    "start:xsend": "yarn build:xsend && node dist/xsend.js",
     "build:receive": "babel receive.js -d dist",
     "start:receive": "yarn build:receive && node dist/receive.js",
     "build:wqreceive": "babel wqreceive.js -d dist",
     "start:wqreceive": "yarn build:wqreceive && node dist/wqreceive.js",
+    "build:xreceive": "babel xreceive.js -d dist",
+    "start:xreceive": "yarn build:xreceive && node dist/xreceive.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
