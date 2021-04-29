@@ -49,4 +49,4 @@ exchanges - another layer setting between producer/consumer and queue
         direct
         topic
         headers
-        fanout
+        fanout - broadcasts to all listening queues
